@@ -1,0 +1,22 @@
+TODOリストをつくってみる。ReactHooksを使う。
+▼TODOリスト内の各TODOにほしい要素
+　・ID(連番もしくはuuidを設定)
+　・タイトル
+　・ステータス(未着手、進行中、完了 など)
+　・詳細
+▼ほしい機能
+　・TODOの追加
+　・TODOの削除
+　・TODOの編集機能
+　・フィルター(ID、期限、ステータスで絞り込み)
+　・ステータス変更でスタイル変更
+　・期限の追加などの要素追加（期限、内容、作成日、更新日など）
+　・データの永続化（FirebaseもしくはSupabase）
+　・コンポーネント化してみる
+　・MaterialUIやChakraUI、もしくはTailwind CSSを使ってみる
+　・Typescirpt化してみる
+　・Context APIを使って状態管理
+　・ログイン認証を行う
+　・アクセス制御を行う
+　・useMemo, useCallback, React.memo、suspenseを使う
+　・Testを導入する
