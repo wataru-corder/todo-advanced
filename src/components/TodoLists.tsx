@@ -1,20 +1,17 @@
-import type { TodoType } from "../types/TodoType";
-import React from 'react'; 
+import { useDeleteTodo } from "../fooks/useDeleteTodo";
+import { TodosContext } from "../providers/TodoContext";
+import React, { useContext } from 'react';
 
-type TodoListProps = {
-  todos: TodoType[];
-}
 
-const handleDeleteTodo = (id:number,e) => {
-console.log(id)
-}
 
-export const TodoList: React.FC<TodoListProps> = ({ todos }) => {
+export const TodoList: React.FC = () => {
+  const { handleDeleteTodo } = useDeleteTodo()
+  const {todos} = useContext(TodosContext)
   return (
     <ul>
       {todos.map((todo) => (
         <li key={todo.id}>{todo.title}
-        <button onClick={(e) => handleDeleteTodo(todo.id,e)}>削除</button>
+          <button onClick={() => handleDeleteTodo(todo.id)}>削除</button>
         </li>
       ))}
     </ul>

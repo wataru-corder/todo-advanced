@@ -6,18 +6,18 @@ type TodoContextType = {
   setTodos: Dispatch<SetStateAction<TodoType[]>>
 }
 
-const TodoContextDefaultValue: TodoContextType = {
+const TodoContextValue: TodoContextType = {
   todos:[],
   setTodos: () => {}
 }
 
-export const TodosContext = createContext(TodoContextDefaultValue);
+export const TodosContext = createContext(TodoContextValue);
 
 export const TodosProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [todos, setTodos] = useState<TodoType[]>([]);
 return(
   <TodosContext.Provider value={{ todos, setTodos }}>
       {children}
-    </TodosContext.Provider>
+  </TodosContext.Provider>
 )
 }

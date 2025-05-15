@@ -1,11 +1,12 @@
-import type { TodoType } from '../types/TodoType';
+import { useContext } from 'react';
+import { TodosContext } from '../providers/TodoContext';
 
-type Props = {
-  todos: TodoType[];
-};
+export const useDeleteTodo = () => {
+  const { todos, setTodos } = useContext(TodosContext)
 
-export const useDeleteTodo: React.FC<Props[]> = ({ todos }) => {
-  const handleDeleteTodo = () => {
-    const todo = todos.filter((todo) => todo.id === id);
+  const handleDeleteTodo = (id:string) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
+
+  return{handleDeleteTodo}
 };

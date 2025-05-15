@@ -1,16 +1,12 @@
-import React, { type ChangeEvent } from 'react';
 
-type Props = {
-  inputValue: string;
-  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleAddTodo: () => void;
-};
+import { useAddTodo } from '../fooks/useAddTodo';
+import { useInputTodo } from '../fooks/useInputTodo';
 
-export const InputTodo: React.FC<Props> = ({
-  inputValue,
-  handleInputChange,
-  handleAddTodo,
-}) => {
+
+export const InputTodo: React.FC = () => {
+  const {inputValue,handleInputChange} = useInputTodo()
+  const {handleAddTodo} = useAddTodo()
+  
   return (
     <>
       <input value={inputValue} onChange={handleInputChange} />
