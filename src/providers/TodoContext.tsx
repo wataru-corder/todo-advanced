@@ -1,4 +1,4 @@
-import React, { createContext, useState, type Dispatch, type SetStateAction } from "react";
+import React, { createContext, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import type { TodoType } from "../types/TodoType";
 
 type TodoContextType = {
@@ -13,7 +13,7 @@ const TodoContextValue: TodoContextType = {
 
 export const TodosContext = createContext(TodoContextValue);
 
-export const TodosProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const TodosProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [todos, setTodos] = useState<TodoType[]>([]);
 return(
   <TodosContext.Provider value={{ todos, setTodos }}>

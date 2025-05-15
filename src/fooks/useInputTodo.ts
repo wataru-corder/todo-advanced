@@ -5,6 +5,5 @@ export const useInputTodo = () => {
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
       };
-
       return {handleInputChange,inputValue,setInputValue}
 }
