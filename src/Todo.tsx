@@ -5,6 +5,8 @@ import { InputTodo } from './components/InputTodo';
 
 export const Todo = () => {
   const { todos, inputValue, handleAddTodo, setInputValue } = useAddTodo();
+  // const { todos, setTodos } = useTodos();
+  //useContextでどこからでもtodosが取得できるように
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
