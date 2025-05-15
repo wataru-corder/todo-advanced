@@ -1,16 +1,24 @@
 import { useContext, useState } from "react"
 import { EditTodoContext } from "../providers/EditContext"
+import { TodosContext } from "../providers/TodoContext"
 
 export const useEditTodo = () => {
     const { isEditable, setIsEditable } = useContext(EditTodoContext)
+    const { todos } = useContext(TodosContext)
+    const [newTitle, setNewTitle] = useState('')
 
-    const [isEditId, setIsEditId] = useState('')
+    const edit = (targetTodoId: string) => {
+        const target = todos.filter((todo) => todo.id === targetTodoId)
+        if(target){
+            setNewTitle(target)
+        }
+    }
 
-    const handleEditTodo = (targetTodo: string) => {
+    const handleEditTodo = (targetTodoId: string) => {
         setIsEditable(true)
-        setIsEditId(targetTodo)
+        edit(targetTodoId)
 
         // 入力欄とtodo.titileの紐づけ
     }
-    return { handleEditTodo, isEditable, isEditId }
+    return { handleEditTodo, isEditable, newTitle }
 }
