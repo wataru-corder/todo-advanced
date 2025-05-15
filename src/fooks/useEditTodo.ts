@@ -5,6 +5,7 @@ import { TodosContext } from "../providers/TodoContext"
 export const useEditTodo = () => {
     const { isEditable, setIsEditable } = useContext(EditTodoContext)
     const { todos } = useContext(TodosContext)
+    const [isEditId, setIsEditId] = useState('')
     const [newTitle, setNewTitle] = useState('')
 
     const edit = (targetTodoId: string) => {
@@ -16,9 +17,10 @@ export const useEditTodo = () => {
 
     const handleEditTodo = (targetTodoId: string) => {
         setIsEditable(true)
+        setIsEditId(targetTodoId)
         edit(targetTodoId)
 
         // 入力欄とtodo.titileの紐づけ
     }
-    return { handleEditTodo, isEditable, newTitle }
+    return { handleEditTodo, isEditable, isEditId, newTitle }
 }
